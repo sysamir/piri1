@@ -17,4 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::group(['middleware' => 'auth'], function () {
+
+        Route::resource('/salam','GroupController');
+
+
+
+    });
+
 Route::get('/home', 'HomeController@index');
