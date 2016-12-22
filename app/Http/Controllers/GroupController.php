@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Group;
+
 class GroupController extends Controller
 {
     /**
@@ -20,7 +22,9 @@ class GroupController extends Controller
 
     public function index()
     {
-        return 'salam';
+        $group = Group::all();
+
+        return view('group',compact('group'));
     }
 
     /**
@@ -30,7 +34,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('groupAdd');
     }
 
     /**
@@ -41,7 +45,13 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      Group::create([
+          'group_name' => $request['group_name']
+      ]);
+
+        return redirect('/qruplar');
+
     }
 
     /**
@@ -84,8 +94,11 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($group_id)
     {
-        //
+
+        $groupDestr = Group::findOrFail($group_id);
+        $groupDestr->delete();
+        return back();
     }
 }

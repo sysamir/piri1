@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-      @var array
-    */
+
+
     protected $fillable = [
-       'group_name',
+
+      'group_id','group_name',
     ];
+
+  public $timestamps = false;
   /**
   * The attributes that should be hidden for arrays.
   *

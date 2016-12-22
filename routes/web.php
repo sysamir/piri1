@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-        Route::resource('/salam','GroupController');
+        Route::resource('/qruplar','GroupController');
 
 
 
