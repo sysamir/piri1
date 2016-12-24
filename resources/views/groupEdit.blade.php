@@ -24,9 +24,10 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form class="form-horizontal" action="{{ route('qruplar.store') }}" method="POST">
+                            <form class="form-horizontal" action="{{ route('qruplar.update', $group->group_id) }}" method="post">
 
                               {{ csrf_field() }}
+                              <input type="hidden" name="_method" value="PATCH">
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="email_address_2">Qrup adı</label>
@@ -34,7 +35,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text"  class="form-control" name="group_name" placeholder="Qrup adını daxil edin" required>
+                                                <input type="text"  class="form-control" name="group_name" value="{{$group->group_name}}" required>
                                             </div>
                                         </div>
                                     </div>

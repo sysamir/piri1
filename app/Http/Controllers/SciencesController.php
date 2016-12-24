@@ -5,27 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Group;
+use App\Sciences;
 use Session;
 
-class GroupController extends Controller
+class SciencesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-     public function __construct()
-       {
-           $this->middleware('auth');
-       }
-
     public function index()
     {
-        $group = Group::orderBy('group_id', 'desc')->get();
+      $science = Sciences::orderBy('science_id', 'desc')->get();
 
-        return view('group',compact('group'));
+      // foreach ($science as $key) {
+      //     $groupDestr = Group::where('group_id', $key->science_groups_id);
+      //     foreach ($groupDestr as $key2) {
+      //       dd($key2->group_name);
+      //     }
+      // }
+
+
+
+      return view('admin.Sciences.index',compact('science'));
     }
 
     /**
@@ -35,7 +38,9 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('groupAdd');
+        $group = Group::orderBy('group_id', 'desc')->get();
+
+        return view('admin.Sciences.add',compact('group'));
     }
 
     /**
@@ -46,17 +51,20 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+          'science_name' => 'required',
+          'groups_id' => 'required'
+        ]);
 
-      $this->validate($request, [
-        'group_name' => 'required'
-    ]);
+        $grp_ids = implode(",",$request->groups_id);
 
-      Group::create([
-          'group_name' => $request['group_name']
-      ]);
+        Sciences::create([
+            'science_name' => $request['science_name'],
+            'science_groups_id' => $grp_ids
+        ]);
 
-        Session::flash('mesaj', 'Yeni qrup əlavə edildi!');
-        return redirect()->route('qruplar.index');
+        Session::flash('mesaj', 'Yeni fənn əlavə edildi!');
+        return redirect()->route('fenler.index');
 
     }
 
@@ -77,11 +85,9 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($group_id)
+    public function edit($id)
     {
-      $group = Group::findOrFail($group_id);
-
-      return view('groupEdit',compact('group'));
+        //
     }
 
     /**
@@ -91,19 +97,9 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $group_id)
+    public function update(Request $request, $id)
     {
-        $group = Group::findOrFail($group_id);
-
-        $this->validate($request, [
-          'group_name' => 'required'
-        ]);
-
-        $input = $request->all();
-        $group->fill($input)->save();
-
-        Session::flash('mesaj', 'Redaktə edildi!');
-        return redirect()->route('qruplar.index');
+        //
     }
 
     /**
@@ -112,11 +108,8 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($group_id)
+    public function destroy($id)
     {
-
-        $groupDestr = Group::where('group_id', $group_id);
-        $groupDestr->delete();
-        return back();
+        //
     }
 }

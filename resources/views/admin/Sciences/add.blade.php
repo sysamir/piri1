@@ -8,34 +8,38 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-
+                                Yeni fənn
                             </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+
                         </div>
                         <div class="body">
-                            <form class="form-horizontal" action="{{ route('qruplar.store') }}" method="POST">
+                            <form class="form-horizontal" action="{{ route('fenler.store') }}" method="POST">
 
                               {{ csrf_field() }}
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="email_address_2">Qrup adı</label>
+                                        <label for="email_address_2">Fənn adı</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text"  class="form-control" name="group_name" placeholder="Qrup adını daxil edin" required>
+                                                <input type="text"  class="form-control" name="science_name" placeholder="fənn adını daxil edin" required>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                    <label for="email_address_2">Qrupların adı</label>
+                                </div>
+                                <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                          <select name="groups_id[]" class="form-control show-tick" multiple data-live-search="true">
+                                              @foreach($group as $groupvalue)
+                                              <option value="{{ $groupvalue->group_id }}">{{ $groupvalue->group_name }}</option>
+                                              @endforeach
+                                          </select>
                                         </div>
                                     </div>
                                 </div>

@@ -16,7 +16,7 @@
                         <div class="header">
                             <h2>
 
-                              <a href="qruplar/create"><button type="button" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
+                              <a href="{{ route('fenler.create') }}"><button type="button" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">add</i>
                                 </button></a>
 
@@ -27,22 +27,26 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>İD</th>
-                                        <th>Qrupun Adı</th>
+                                        <th>ID</th>
+                                        <th>Fənn Adı</th>
+                                        <th>Fənn Qurupları</th>
                                         <th>Fəaliyyət</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                  @foreach($group as $groupvalue)
+                                  @foreach($science as $science_val)
                                     <tr>
-                                        <th scope="row">{{ $groupvalue->group_id }}</th>
-                                        <td>{{ $groupvalue->group_name }}</td>
+                                        <th scope="row">{{ $science_val->science_id }}</th>
+                                        <td>{{ $science_val->science_name }}</td>
+                                        <td>
+                                          {{ $science_val->science_groups_id }}
+                                        </td>
                                         <td>
 
-                                          <div class="col-md-1">
-                                            <form action="{{ route('qruplar.destroy', $groupvalue->group_id) }}" method="post">
+                                          <div class="col-md-2">
+                                            <form action="{{ route('qruplar.destroy', $science_val->science_id) }}" method="post">
                                               {{ csrf_field() }}
                                               <input type="hidden" name="_method" value="DELETE">
                                               <input type="submit" value="Sil" class="btn btn-danger">
@@ -50,7 +54,7 @@
                                           </div>
 
                                           <div class="col-md-3">
-                                            <a href="{{ route('qruplar.edit', $groupvalue->group_id) }}" class="btn btn-primary">Redaktə</a>
+                                            <a href="{{ route('qruplar.edit', $science_val->science_id) }}" class="btn btn-primary">Redaktə</a>
                                           </div>
                                         </td>
 

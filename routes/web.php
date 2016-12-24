@@ -17,12 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['middleware' => 'auth'], function () {
+  Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
         Route::resource('/qruplar','GroupController');
+        Route::resource('/fenler','SciencesController');
 
 
 
     });
 
+Route::get('/admin', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
