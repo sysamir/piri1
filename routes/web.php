@@ -21,6 +21,9 @@ Auth::routes();
 
         Route::resource('/qruplar','GroupController');
         Route::resource('/fenler','SciencesController');
+        Route::resource('/movzular','SubjectsController');
+        // Route::resource('/{id}/images' , 'ImageController');
+
 
 
 

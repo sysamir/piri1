@@ -16,7 +16,6 @@ class CreateSciencesTable extends Migration
         Schema::create('sciences', function (Blueprint $table) {
             $table->increments('science_id');
             $table->string('science_name');
-            $table->string('science_groups_id');
             $table->timestamps();
         });
     }

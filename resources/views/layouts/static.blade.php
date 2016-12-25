@@ -250,18 +250,29 @@
                     </li>
 
                     <li>
+                        <a href="{{ route('fenler.index') }}">
+                            <i class="material-icons">translate</i>
+                            <span>Fənlər</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('movzular.index') }}">
+                            <i class="material-icons">subject</i>
+                            <span>Mövzular</span>
+                        </a>
+                    </li>
+
+
+
+                    <li>
                         <a href="/qruplar">
                             <i class="material-icons">person</i>
                             <span>İstifadəçilər</span>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="{{ route('fenler.index') }}">
-                            <i class="material-icons">translate</i>
-                            <span>Fənlər</span>
-                        </a>
-                    </li>
+
 
                     <li>
                         <a href="">

@@ -36,12 +36,12 @@
                                 </thead>
                                 <tbody>
 
-                                  @foreach($science as $science_val)
+                                  @foreach($fenler as $science_val)
                                     <tr>
                                         <th scope="row">{{ $science_val->science_id }}</th>
                                         <td>{{ $science_val->science_name }}</td>
                                         <td>
-                                          {{ $science_val->science_groups_id }}
+                                          {{ $science_val->group_name }}
                                         </td>
                                         <td>
 

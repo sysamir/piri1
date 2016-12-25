@@ -4,24 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Group;
-use App\Sciences;
-use Session;
-use App\GS_relations;
-
-class SciencesController extends Controller
+class Subjects extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-
-
-    $fenler =  Sciences::select('sciences.science_id','sciences.science_name','gs_relations.gs_group_id')->join('gs_relations','gs_relations.gs_science_id','=','sciences.science_id')->get();
-
-    return view('admin.Sciences.index',compact('fenler', 'sm'));
+    public function index()
+    {
+        //
     }
 
     /**
@@ -31,9 +23,7 @@ class SciencesController extends Controller
      */
     public function create()
     {
-        $group = Group::orderBy('group_id', 'desc')->get();
-
-        return view('admin.Sciences.add',compact('group'));
+        //
     }
 
     /**
@@ -44,22 +34,7 @@ class SciencesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-          'science_name' => 'required'
-        ]);
-
-
-        $science_id = Sciences::create([
-            'science_name' => $request['science_name']
-        ])->science_id;
-
-        $science = Sciences::where('science_id', $science_id)->first();
-
-        $science->qruplari()->attach($request['gs_group_id']);
-
-        Session::flash('mesaj', 'Yeni fənn əlavə edildi! (id: '.$science_id.')');
-        return redirect()->route('fenler.index');
-
+        //
     }
 
     /**

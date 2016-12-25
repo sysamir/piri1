@@ -35,7 +35,7 @@
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                     <div class="form-group">
                                         <div class="form-line">
-                                          <select name="groups_id[]" class="form-control show-tick" multiple data-live-search="true">
+                                          <select name="gs_group_id[]" class="form-control show-tick" multiple data-live-search="true">
                                               @foreach($group as $groupvalue)
                                               <option value="{{ $groupvalue->group_id }}">{{ $groupvalue->group_name }}</option>
                                               @endforeach
