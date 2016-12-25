@@ -32,19 +32,19 @@
     <link href="/css/themes/all-themes.css" rel="stylesheet" />
 
     <!-- Dropzone Css -->
-    <link href="../../plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href="/plugins/dropzone/dropzone.css" rel="stylesheet">
 
     <!-- Multi Select Css -->
-    <link href="../../plugins/multi-select/css/multi-select.css" rel="stylesheet">
+    <link href="/plugins/multi-select/css/multi-select.css" rel="stylesheet">
 
     <!-- Bootstrap Spinner Css -->
-    <link href="../../plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
+    <link href="/plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
 
     <!-- Bootstrap Tagsinput Css -->
-    <link href="../../plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
 
     <!-- Bootstrap Select Css -->
-    <link href="../../plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">

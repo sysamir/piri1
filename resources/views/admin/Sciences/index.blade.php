@@ -48,7 +48,7 @@
                                         <td>
 
                                           <div class="col-md-2">
-                                            <form action="{{ route('qruplar.destroy', $science_val->science_id) }}" method="post">
+                                            <form action="{{ route('fenler.destroy', $science_val->science_id) }}" method="post">
                                               {{ csrf_field() }}
                                               <input type="hidden" name="_method" value="DELETE">
                                               <input type="submit" value="Sil" class="btn btn-danger">
@@ -56,7 +56,7 @@
                                           </div>
 
                                           <div class="col-md-3">
-                                            <a href="{{ route('qruplar.edit', $science_val->science_id) }}" class="btn btn-primary">Redaktə</a>
+                                            <a href="{{ route('fenler.edit', $science_val->science_id) }}" class="btn btn-primary">Redaktə</a>
                                           </div>
                                         </td>
 

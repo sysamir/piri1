@@ -44,7 +44,8 @@ class SciencesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-          'science_name' => 'required'
+          'science_name' => 'required',
+          'gs_group_id' => 'required'
         ]);
 
 
@@ -80,7 +81,9 @@ class SciencesController extends Controller
      */
     public function edit($id)
     {
-        //
+      $fenn = Sciences::with('qruplari')->findOrFail($id);
+
+      return view('admin.Sciences.edit',compact('fenn','tap'));
     }
 
     /**

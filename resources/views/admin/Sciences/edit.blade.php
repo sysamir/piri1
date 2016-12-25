@@ -23,7 +23,7 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text"  class="form-control" name="science_name" placeholder="fənn adını daxil edin" required>
+                                                <input type="text" value="{{ $fenn->science_name }}"  class="form-control" name="science_name" placeholder="fənn adını daxil edin" required>
                                             </div>
                                         </div>
                                     </div>
@@ -36,9 +36,17 @@
                                     <div class="form-group">
                                         <div class="form-line">
                                           <select name="gs_group_id[]" class="form-control show-tick" multiple data-live-search="true" required>
-                                              @foreach($group as $groupvalue)
-                                              <option value="{{ $groupvalue->group_id }}">{{ $groupvalue->group_name }}</option>
+
+
+                                              @foreach($fenn->qruplari as $science_val)
+
+
+
+                                              <option selected value="{{ $science_val->group_id }}">{{ $science_val->group_name }}</option>
+
+
                                               @endforeach
+
                                           </select>
                                         </div>
                                     </div>
