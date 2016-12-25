@@ -18,10 +18,9 @@ class SciencesController extends Controller
      */
     public function index(){
 
+    $fenler =  Sciences::with('qruplari')->orderBy('science_id','desc')->get();
 
-    $fenler =  Sciences::select('sciences.science_id','sciences.science_name','gs_relations.gs_group_id')->join('gs_relations','gs_relations.gs_science_id','=','sciences.science_id')->get();
-
-    return view('admin.Sciences.index',compact('fenler', 'sm'));
+    return view('admin.Sciences.index',compact('fenler'));
     }
 
     /**

@@ -41,7 +41,9 @@
                                         <th scope="row">{{ $science_val->science_id }}</th>
                                         <td>{{ $science_val->science_name }}</td>
                                         <td>
-                                          {{ $science_val->group_name }}
+                                          @foreach($science_val->qruplari as $a)
+                                            {{ $a->group_name }}<br/>
+                                          @endforeach
                                         </td>
                                         <td>
 
