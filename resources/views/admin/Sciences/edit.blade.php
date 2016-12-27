@@ -33,23 +33,17 @@
                                     <label for="email_address_2">Qrupların adı</label>
                                 </div>
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+
                                     <div class="form-group">
                                         <div class="form-line">
-                                          <select name="gs_group_id[]" class="form-control show-tick" multiple data-live-search="true" required>
-
-
-                                              @foreach($fenn->qruplari as $science_val)
-
-
-
-                                              <option selected value="{{ $science_val->group_id }}">{{ $science_val->group_name }}</option>
-
-
-                                              @endforeach
-
-                                          </select>
+                                          {{ Form::select('gs_group_id[]',
+                                          $gr->pluck('group_name', 'group_id')->toArray(),
+                                          $fenn->qruplari->pluck('group_id')->toArray(),
+                                          ['multiple' => true, 'class' => 'form-control show-tick']) }}
                                         </div>
                                     </div>
+
+
                                 </div>
 
                                 <div class="row clearfix">

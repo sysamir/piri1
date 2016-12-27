@@ -18,7 +18,8 @@ class Sciences extends Model
     return $this->belongsToMany('App\Group', 'gs_relations', 'gs_science_id', 'gs_group_id');
   }
 
-      
+
+
 
 
 }

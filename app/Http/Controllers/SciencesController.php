@@ -8,6 +8,7 @@ use App\Group;
 use App\Sciences;
 use Session;
 use App\GS_relations;
+use DB;
 
 class SciencesController extends Controller
 {
@@ -81,9 +82,12 @@ class SciencesController extends Controller
      */
     public function edit($id)
     {
+      // DB::enableQueryLog();
       $fenn = Sciences::with('qruplari')->findOrFail($id);
+      // dd(DB::getQueryLog());
+      $gr = Group::all();
 
-      return view('admin.Sciences.edit',compact('fenn','tap'));
+      return view('admin.Sciences.edit',compact('fenn','gr'));
     }
 
     /**
