@@ -257,7 +257,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('movzular.index') }}">
+                        <a href="/admin/movzular">
                             <i class="material-icons">subject</i>
                             <span>Mövzular</span>
                         </a>
