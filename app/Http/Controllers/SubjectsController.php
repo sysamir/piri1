@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 //
-//use App\Subjects;
+use App\Subjects;
 
 class SubjectsController extends Controller
 {
@@ -16,7 +16,14 @@ class SubjectsController extends Controller
     
     public function index()
     {
-        return view('admin.Subjects.index');
+        
+        $test = \App\Sciences::with('movzu')->get();
+            
+            dd($test);
+        
+        return view('admin.Subjects.index',compact('test'));
+        
+        
     }
 
     /**
