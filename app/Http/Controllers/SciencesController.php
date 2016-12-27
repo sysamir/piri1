@@ -99,7 +99,19 @@ class SciencesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+        'science_name' => 'required',
+        'gs_group_id' => 'required'
+      ]);
+
+      $science = Sciences::where('science_id', $id)->first();
+
+      $science->fill($request->all())->save();
+
+      $science->qruplari()->sync($request['gs_group_id']);
+
+      Session::flash('mesaj', 'Redaktə edildi!');
+      return redirect()->route('fenler.index');
     }
 
     /**
@@ -110,6 +122,10 @@ class SciencesController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $science = Sciences::where('science_id', $id)->first();
+      $science->qruplari()->detach();
+      $science->delete();
+      Session::flash('mesaj', 'Silindi!');
+      return redirect()->route('fenler.index');
     }
 }

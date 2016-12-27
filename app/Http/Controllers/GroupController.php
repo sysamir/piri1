@@ -25,7 +25,7 @@ class GroupController extends Controller
     {
         $group = Group::orderBy('group_id', 'desc')->get();
 
-        return view('group',compact('group'));
+        return view('admin.Groups.index',compact('group'));
     }
 
     /**
@@ -35,7 +35,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        return view('groupAdd');
+        return view('admin.Groups.add');
     }
 
     /**
@@ -81,7 +81,7 @@ class GroupController extends Controller
     {
       $group = Group::findOrFail($group_id);
 
-      return view('groupEdit',compact('group'));
+      return view('admin.Groups.edit',compact('group'));
     }
 
     /**

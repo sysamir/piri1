@@ -13,9 +13,10 @@
 
                         </div>
                         <div class="body">
-                            <form class="form-horizontal" action="{{ route('fenler.store') }}" method="POST">
+                            <form class="form-horizontal" action="{{ route('fenler.update', $fenn->science_id) }}" method="POST">
 
                               {{ csrf_field() }}
+                              <input type="hidden" name="_method" value="PATCH">
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="email_address_2">Fənn adı</label>
