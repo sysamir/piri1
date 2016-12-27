@@ -17,10 +17,10 @@ class Sciences extends Model
   public function qruplari(){
     return $this->belongsToMany('App\Group', 'gs_relations', 'gs_science_id', 'gs_group_id');
   }
-  
-  public function movzu(){
-    return $this->hasMany('App\Subjects', 'subject_science_id');
-  }
+
+  // public function movzu(){
+  //   return $this->hasMany('App\Subjects', 'subject_science_id');
+  // }
 
 
 

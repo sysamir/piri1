@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Yeni fənn
+                                Fənn Redaktəsi
                             </h2>
 
                         </div>

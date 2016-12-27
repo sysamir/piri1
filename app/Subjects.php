@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subjects extends Model
 {
-    
+
     protected $table = 'subjects';
     protected $fillable = [
 
-      'subject_id','subject_name',
+      'subject_id','subject_name','subject_science_id',
     ];
 
   // public $timestamps = false;
-  protected $primaryKey = 'group_id';
+  protected $primaryKey = 'subject_id';
   /**
   * The attributes that should be hidden for arrays.
   *
@@ -23,10 +23,10 @@ class Subjects extends Model
   protected $hidden = [
      'password', 'remember_token',
   ];
-  
-  public function movzular(){
-      
-      return $this->belongsToMany('App\Sciences', 'science_id');
+
+  public function fenni(){
+    return $this->hasOne('App\Sciences', 'science_id', 'subject_science_id');
   }
+
 
 }

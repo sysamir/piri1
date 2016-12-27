@@ -8,14 +8,15 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Yeni mövzu
+                                Mövzu redaktəsi
                             </h2>
 
                         </div>
                         <div class="body">
-                            <form class="form-horizontal" action="{{ route('movzular.store') }}" method="POST">
+                            <form class="form-horizontal" action="{{ route('movzular.update', $movzu->subject_id) }}" method="POST">
 
                               {{ csrf_field() }}
+                              <input type="hidden" name="_method" value="PATCH">
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                                         <label for="subject_name">Mövzu adı</label>
@@ -23,26 +24,27 @@
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text"  class="form-control" name="subject_name" placeholder="mövzu adını daxil edin" required>
+                                                <input type="text" value="{{ $movzu->subject_name }}"  class="form-control" name="subject_name" placeholder="mövzu adını daxil edin" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                    <label for="email_address_2">Fənn adı</label>
+                                    <label for="subject_science_id">Fənin adı</label>
                                 </div>
                                 <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+
                                     <div class="form-group">
                                         <div class="form-line">
-                                          <select name="subject_science_id" class="form-control show-tick" data-live-search="true" required>
-                                                <option style=" display: none;" value="" selected disabled>Fənn seçin</option>
-                                              @foreach($fennler as $fennvalue)
-                                              <option value="{{ $fennvalue->science_id }}">{{ $fennvalue->science_name }}</option>
-                                              @endforeach
-                                          </select>
+                                          {{ Form::select('subject_science_id',
+                                          $fennler->pluck('science_name', 'science_id')->toArray(),
+                                          $movzu->fenni->science_id,
+                                          ['class' => 'form-control show-tick']) }}
                                         </div>
                                     </div>
+
+
                                 </div>
 
                                 <div class="row clearfix">

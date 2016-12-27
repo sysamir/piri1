@@ -14,7 +14,7 @@
                         <div class="header">
                             <h2>
 
-                              <a href="{{ route('fenler.create') }}"><button type="button" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
+                              <a href="{{ route('movzular.create') }}"><button type="button" class="btn btn-success btn-circle waves-effect waves-circle waves-float">
                                     <i class="material-icons">add</i>
                                 </button></a>
 
@@ -33,7 +33,34 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+
+                                  @foreach($movzular as $movzu_val)
+                                    <tr>
+                                        <th scope="row">{{ $movzu_val->subject_id }}</th>
+                                        <td>{{ $movzu_val->subject_name }}</td>
+                                        <td>
+                                          @foreach($movzu_val->fenni()->get() as $ab)
+                                            {{ $ab->science_name }}<br/>
+                                          @endforeach
+                                        </td>
+                                        <td>
+
+                                          <div class="col-md-2">
+                                            <form action="{{ route('movzular.destroy', $movzu_val->subject_id) }}" method="post">
+                                              {{ csrf_field() }}
+                                              <input type="hidden" name="_method" value="DELETE">
+                                              <input type="submit" value="Sil" class="btn btn-danger">
+                                            </form>
+                                          </div>
+
+                                          <div class="col-md-3">
+                                            <a href="{{ route('movzular.edit', $movzu_val->subject_id) }}" class="btn btn-primary">Redaktə</a>
+                                          </div>
+                                        </td>
+
+                                    </tr>
+                                  @endforeach
+
 
 
                                 </tbody>
