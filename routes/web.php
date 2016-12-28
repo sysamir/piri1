@@ -23,6 +23,7 @@ Auth::routes();
         Route::resource('/fenler','SciencesController');
         Route::resource('/movzular','SubjectsController');
         Route::resource('/istifadechiler','SiteUsersController');
+        Route::resource('/suallar','QuestionsController');
 
     });
 

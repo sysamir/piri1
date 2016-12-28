@@ -24,5 +24,11 @@ class Group extends Model
      'password', 'remember_token',
   ];
 
+  public function fenleri(){
+    return $this->belongsToMany('App\Sciences', 'gs_relations', 'gs_group_id', 'gs_science_id');
+  }
+
+
+
 
 }
