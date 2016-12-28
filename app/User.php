@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','user_fullname', 'user_phone', 'user_status','user_access'
     ];
 
     /**
@@ -26,4 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function userQruplari(){
+      return $this->belongsToMany('App\Group', 'gu_relations', 'gu_user_id', 'gu_group_id');
+    }
 }

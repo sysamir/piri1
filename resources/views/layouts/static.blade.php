@@ -257,7 +257,7 @@
                     </li>
 
                     <li>
-                        <a href="/admin/movzular">
+                        <a href="{{ route('movzular.index') }}">
                             <i class="material-icons">subject</i>
                             <span>Mövzular</span>
                         </a>
@@ -266,7 +266,7 @@
 
 
                     <li>
-                        <a href="/qruplar">
+                        <a href="{{ route('istifadechiler.index') }}">
                             <i class="material-icons">person</i>
                             <span>İstifadəçilər</span>
                         </a>

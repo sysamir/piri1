@@ -22,9 +22,7 @@ Auth::routes();
         Route::resource('/qruplar','GroupController');
         Route::resource('/fenler','SciencesController');
         Route::resource('/movzular','SubjectsController');
-        
-
-
+        Route::resource('/istifadechiler','SiteUsersController');
 
     });
 
