@@ -25,6 +25,9 @@ Auth::routes();
         Route::resource('/istifadechiler','SiteUsersController');
         Route::resource('/suallar','QuestionsController');
 
+        Route::get('/ajax/group/{id}', 'HomeController@ajaxGroup');
+        Route::get('/ajax/science/{id}', 'HomeController@ajaxScience');
+
     });
 
 Route::get('/admin', 'HomeController@index');

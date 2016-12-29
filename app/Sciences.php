@@ -19,7 +19,7 @@ class Sciences extends Model
   }
 
   public function movzusu(){
-    return $this->hasOne('App\Subjects', 'subject_science_id', 'science_id');
+    return $this->hasMany('App\Subjects', 'subject_science_id', 'science_id');
   }
 
 

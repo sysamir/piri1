@@ -17,10 +17,7 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-      // DB::enableQueryLog();
-      $c = Sciences::with('qruplari','movzusu')->get();
-      // $c = DB::getQueryLog();
-        dd($c);
+
     }
 
     /**
@@ -30,7 +27,12 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        //
+      // DB::enableQueryLog();
+      // $q = Sciences::with('qruplari','movzusu')->get();
+      // $c = DB::getQueryLog();
+      $gr = Group::all();
+      // dd($q);
+      return view('admin.Questions.add',compact('gr'));
     }
 
     /**
