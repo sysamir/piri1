@@ -45,6 +45,9 @@
 
     <!-- Bootstrap Select Css -->
     <link href="/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <!-- Sweetalert Css -->
+    <link href="/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
 </head>
 
 <body class="theme-red">
@@ -386,6 +389,9 @@
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="/plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- SweetAlert Plugin Js -->
+    <script src="/plugins/sweetalert/sweetalert.min.js"></script>
 
     <!-- Custom Js -->
     <script src="/js/admin.js"></script>

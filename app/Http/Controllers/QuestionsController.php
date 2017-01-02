@@ -35,6 +35,11 @@ class QuestionsController extends Controller
       return view('admin.Questions.add',compact('gr'));
     }
 
+    public function create2()
+    {
+      # code...
+    }
+
     /**
      * Store a newly created resource in storage.
      *
